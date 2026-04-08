@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
 import 'new_user.dart';
+import 'forgot_password.dart';
 
 void main(){
   runApp(const MyApp());
@@ -117,6 +118,12 @@ const SizedBox(height:10),
 alignment :Alignment.centerLeft,
 child:TextButton(
   onPressed:(){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ForgotPasswordPage(),
+        ),
+      );
     print("Şifremi unuttum tıklandı");
   },
   child:const Text(
