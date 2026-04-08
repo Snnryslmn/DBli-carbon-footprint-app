@@ -137,9 +137,12 @@ void initState(){
                     Expanded(
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context,
-                          MaterialPageRoute(builder: (context)=> const SurveyPage()),
-                          );
+                          Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SurveyPage(),
+      ),
+    );
                       
                         },
                         icon: const Icon(Icons.assessment_outlined),
@@ -176,3 +179,5 @@ void initState(){
         ), ),),],),);
   }
   }
+  
+  

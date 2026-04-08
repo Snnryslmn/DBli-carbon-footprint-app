@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
+import 'new_user.dart';
 
 void main(){
   runApp(const MyApp());
@@ -15,9 +16,14 @@ class MyApp extends  StatelessWidget {
       );
 }
 }
-class LoginPage extends StatelessWidget{
+class LoginPage extends StatefulWidget{
   const LoginPage({super.key});
   @override
+  State<LoginPage> createState()=> _LoginPageState();
+}
+class _LoginPageState extends State<LoginPage>{
+
+
 Widget build(BuildContext context){
 
 const Color greenColor =Color (0xFF1B5E20);
@@ -33,10 +39,7 @@ color:greenColor,
 child:const Stack (
 alignment:Alignment.center,
 children:[
-  Positioned(
-left:12,
-child: Icon(Icons.arrow_back, color: Colors.white),
-),
+  
 Text(
     "Giriş",
 style:TextStyle(
@@ -159,7 +162,14 @@ shape: RoundedRectangleBorder(
 borderRadius: BorderRadius.circular(8),
 ),
 ),
-onPressed: () {},
+onPressed: () {
+ Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const NewUser(),
+  ),
+);
+},
 child:const Text (
 "Yeni Kullanıcı Kaydı",
 style:TextStyle(color:Colors.black87),
@@ -180,3 +190,4 @@ style:TextStyle(color:Colors.black87),
 
   
 }
+
