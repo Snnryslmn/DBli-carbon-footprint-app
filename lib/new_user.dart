@@ -42,6 +42,7 @@ const Color greenColor =Color (0xFF1B5E20);
   return Scaffold(
 backgroundColor: const  Color(0xFFF7F7F7),
 body:SafeArea(
+ child: SingleChildScrollView( 
 child:Column(
 children:[
   Container(
@@ -83,6 +84,8 @@ fontWeight: FontWeight.w500,
 ),
 ),
 const SizedBox(height:25),
+
+
 Padding(
 padding:const EdgeInsets.symmetric(horizontal: 24),
 child:Form(
@@ -224,7 +227,7 @@ style:TextStyle(fontSize:13),
 ),
 ),
 ),
-const SizedBox(height:30),
+const SizedBox(height:20),
 SizedBox(
 width:double.infinity,
 height:46,
@@ -261,11 +264,13 @@ TextButton(
                 ),
               ),
             ),
+
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
 

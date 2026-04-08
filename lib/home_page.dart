@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'view_suggestions.dart';
 import 'survey_page.dart';
 
 class HomePage extends StatefulWidget{
@@ -160,7 +160,15 @@ void initState(){
                     const SizedBox(width: 12),
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ViewSuggestions(),
+      ),
+    );
+
+                        },
                         icon: const Icon(Icons.lightbulb_outline),
                         label: const Text("Önerileri Gör"),
                         style: ElevatedButton.styleFrom(
