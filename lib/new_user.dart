@@ -14,10 +14,10 @@ class NewUser extends StatefulWidget {
 class _NewUserState extends State<NewUser> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(); //kullanıcıdan alınan (tutulacak) email
+  final TextEditingController passwordController = TextEditingController();//alınan şifre
+  final TextEditingController nameController = TextEditingController();//alınan ad
+  final TextEditingController surnameController = TextEditingController();//alınan soyad
 
   bool _isLoading = false;
   bool _obscurePassword = true;
@@ -32,7 +32,7 @@ class _NewUserState extends State<NewUser> {
   }
 
   Future<void> registerUser() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!_formKey.currentState!.validate()) return;//Kullanıcı kaydı burada oluyor
 
     setState(() {
       _isLoading = true;
@@ -50,7 +50,7 @@ class _NewUserState extends State<NewUser> {
       debugPrint('Auth kaydı başarılı. UID: ${userCredential.user?.uid}');
 
       await FirebaseFirestore.instance
-          .collection('users')
+          .collection('users') //Burada firebase users adlı tablosu
           .doc(userCredential.user!.uid)
           .set({
         'uid': userCredential.user!.uid,
@@ -77,7 +77,7 @@ class _NewUserState extends State<NewUser> {
         ),
       );
     } on FirebaseAuthException catch (e) {
-      String message;
+      String message;//HEr hangi bir sıkıntıda verilecek cevaplar
 
       switch (e.code) {
         case 'email-already-in-use':
